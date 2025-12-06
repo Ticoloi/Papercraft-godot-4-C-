@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://8hd0gkf618l"]
+
+[ext_resource type="Script" uid="uid://d4lxjo5vgvhap" path="res://papercraft/blocks/scripts/mud.gd" id="1_7wbpc"]
+[ext_resource type="Texture2D" uid="uid://vl5tblhw2p6k" path="res://assets/textures/blocks/stone.png" id="2_g2rg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phdpf"]
+size = Vector2(16, 16)
+
+[node name="Stone" type="Block"]
+id = "stone"
+script = ExtResource("1_7wbpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_phdpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_g2rg3")

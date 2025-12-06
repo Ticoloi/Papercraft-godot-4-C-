@@ -1,0 +1,9 @@
+{
+	"BLOCKS" : [
+		"cobblestone.tscn",
+		"dirt.tscn",
+		"mud.tscn",
+		"stone.tscn",
+		"sandstone.tscn"
+	]    
+}

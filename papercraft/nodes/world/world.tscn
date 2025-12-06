@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://ycny71vhg0ed"]
+
+[ext_resource type="Script" uid="uid://oatvrftc0jk6" path="res://nodes/world/player.gd" id="1_rjofe"]
+[ext_resource type="Texture2D" uid="uid://dbxkvk5iiof20" path="res://assets/etc/frog_purple_spritesheet.png" id="2_rjofe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtb3w"]
+size = Vector2(14, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtb3w"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqsjd"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anynj"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckf7y"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaput"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejycp"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb7j2"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpf4b"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjofe"]
+atlas = ExtResource("2_rjofe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckf7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtb3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqsjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anynj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckf7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaput")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejycp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb7j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpf4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjofe")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="World" type="World"]
+metadata/_edit_vertical_guides_ = [-43.0]
+
+[node name="Player" type="Player" parent="."]
+speed = 140.0
+jump_height = 200.0
+selected_block = 0
+floor_stop_on_slope = false
+script = ExtResource("1_rjofe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(8, -6.5)
+shape = SubResource("RectangleShape2D_vtb3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_ckf7y")
+animation = &"walk"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
+
+[connection signal="direction_changed" from="Player" to="Player" method="_on_direction_changed"]

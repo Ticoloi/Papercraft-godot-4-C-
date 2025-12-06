@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1y5cwwijjemv"]
+
+[ext_resource type="Texture2D" uid="uid://nk6r1jyhdk4w" path="res://assets/textures/blocks/sandstone_bottom.png" id="1_lnnqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kv2d"]
+size = Vector2(16, 16)
+
+[node name="Sandstone" type="Block"]
+id = "sandstone"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_lnnqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_4kv2d")

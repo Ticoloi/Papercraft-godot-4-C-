@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwdh1o1bl0seh"]
+
+[ext_resource type="Texture2D" uid="uid://b0dlvdyfc0qjr" path="res://assets/textures/blocks/mud.png" id="1_76011"]
+[ext_resource type="Script" uid="uid://d4lxjo5vgvhap" path="res://papercraft/blocks/scripts/mud.gd" id="1_phdpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phdpf"]
+size = Vector2(16, 16)
+
+[node name="Mud" type="Block"]
+id = "mud"
+script = ExtResource("1_phdpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_76011")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_phdpf")
